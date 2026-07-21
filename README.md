@@ -64,6 +64,6 @@ src/
 
 ## Note
 
-This is a **frontend-only** showcase. The contact form displays a success message locally; connect it to a backend API for production use.
-=======
+This is a **frontend-only** showcase. it will be integrated withn back end soon.
+=====
 
