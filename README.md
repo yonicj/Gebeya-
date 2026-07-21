@@ -60,17 +60,10 @@ src/
 └── index.css
 ```
 
-## Design
 
-- Sage green & emerald accent palette
-- DM Sans + Playfair Display typography
-- Mobile-first responsive layout
-- Subtle Framer Motion animations
 
 ## Note
 
 This is a **frontend-only** showcase. The contact form displays a success message locally; connect it to a backend API for production use.
 =======
-# Gebeya-
-it is where sellers put their product  and buyers purchase 
->>>>>>> 479551c88e9959988264ad7f124d7ea678c949ad
+
