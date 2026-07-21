@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Batu Gebeya
 
 A modern, responsive frontend for **Batu Gebeya** — a local marketplace and delivery platform showcasing products from shops in Batu town.
@@ -64,6 +63,7 @@ src/
 
 ## Note
 
+```
 This is a **frontend-only** showcase. it will be integrated withn back end soon.
-=====
+```
 
