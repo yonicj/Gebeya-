@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-primary: #2563EB;
+  --color-primary-dark: #1D4ED8;
+  --color-secondary: #10B981;
+  --color-secondary-dark: #059669;
+  --color-accent: #F59E0B;
+  --color-surface: #FFFFFF;
+  --color-surface-light: #F8FAFC;
+  --color-text: #1E293B;
+  --color-text-muted: #475569;
+  --color-border: #E2E8F0;
+
+  --color-sage-50: #eff6ff;
+  --color-sage-100: #dbeafe;
+  --color-sage-200: #bfdbfe;
+  --color-sage-400: #60a5fa;
+  --color-sage-500: #3b82f6;
+  --color-sage-600: #2563eb;
+  --color-sage-700: #1d4ed8;
+  --color-sage-800: #1e40af;
+  --color-sage-900: #1e3a8a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-surface-light);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer utilities {
+  .bg-primary { background-color: var(--color-primary); }
+  .bg-primary-dark { background-color: var(--color-primary-dark); }
+  .text-primary { color: var(--color-primary); }
+  .border-primary { border-color: var(--color-primary); }
+  .bg-secondary { background-color: var(--color-secondary); }
+  .bg-secondary-dark { background-color: var(--color-secondary-dark); }
+  .text-secondary { color: var(--color-secondary); }
+  .bg-accent { background-color: var(--color-accent); }
+  .text-accent { color: var(--color-accent); }
+  .border-accent { border-color: var(--color-accent); }
+  .shadow-brand { box-shadow: 0 24px 80px rgba(37, 99, 235, 0.14); }
+}
+
+.font-display {
+  font-family: var(--font-sans);
+}
