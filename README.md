@@ -1,4 +1,5 @@
-# Batu Gebeya
+# Batu Gebeya <img width="39" height="32" alt="shopping-cart-3d-render-icon" src="https://github.com/user-attachments/assets/3441530e-cf5e-4ebf-a1b3-9b1de305edcc" />
+
 
 A modern, responsive frontend for **Batu Gebeya** — a local marketplace and delivery platform showcasing products from shops in Batu town.
 
