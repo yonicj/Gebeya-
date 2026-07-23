@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api/contact';
+
 const initialForm = {
   fullName: '',
   phone: '',
@@ -31,6 +33,8 @@ export default function ContactForm() {
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   useEffect(() => {
     const product = searchParams.get('product');
@@ -60,7 +64,7 @@ export default function ContactForm() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validateForm(form);
     setErrors(validationErrors);
@@ -71,9 +75,32 @@ export default function ContactForm() {
       message: true,
     });
 
-    if (Object.keys(validationErrors).length === 0) {
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
+
+    setIsSending(true);
+    setSubmitError('');
+
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Unable to send your message right now.');
+      }
+
       setSubmitted(true);
       setForm(initialForm);
+    } catch (error) {
+      setSubmitError(error.message || 'Unable to send your message right now.');
+    } finally {
+      setIsSending(false);
     }
   };
 
@@ -202,14 +229,17 @@ export default function ContactForm() {
         )}
       </div>
 
-      <motion.button
+      {submitError && (
+        <p className="text-sm text-red-500">{submitError}</p>
+      )}
+
+      <button
         type="submit"
-        whileHover={{ scale: 1.01 }}
-        whileTap={{ scale: 0.99 }}
-        className="w-full py-3.5 bg-sage-600 text-white font-medium rounded-xl hover:bg-sage-700 transition-colors shadow-md shadow-sage-600/20"
+        disabled={isSending}
+        className="w-full py-3.5 bg-green-700 text-white font-semibold rounded-xl hover:bg-green-800 transition-colors shadow-lg shadow-green-700/20 disabled:opacity-70 disabled:cursor-not-allowed"
       >
-        Send Message
-      </motion.button>
+        {isSending ? 'Sending...' : 'Send Message'}
+      </button>
     </form>
   );
 }

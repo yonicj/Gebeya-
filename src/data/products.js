@@ -320,7 +320,7 @@ export const whyChooseUs = [
 
 export const contactInfo = {
   phone: '+251 911 234 567',
-  email: 'hello@batugebeya.com',
+  email: 'ys61972@gmail.com',
   tiktok: 'https://tiktok.com/@batugebeya',
   instagram: 'https://instagram.com/batugebeya',
   address: 'Batu Town, Oromia Region, Ethiopia',
